@@ -1,0 +1,6 @@
+url,https://www.itouzi.com/
+test_username,/html/body/div[2]/div/div/form/div[1]/input
+test_pwd,html/body/div[2]/div/div/form/div[2]/input
+test_login,/html/body/div[2]/div/div/form/div[5]/button
+test_name,//*[@id="top_header_sign_out"]/li[2]/a
+test_loginout,//*[@id="top_header_sign_in"]/li[2]/a
