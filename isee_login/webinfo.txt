@@ -1,0 +1,7 @@
+url,https://wxtest.iseecapital.com/login
+test_username,/html/body/div[3]/div/form/div[1]/input
+test_pwd,/html/body/div[3]/div/form/div[2]/input
+test_login,/html/body/div[3]/div/form/div[5]/button
+test_name,//*[@id="top_header_right"]/a[1]
+test_loginout,//*[@id="top_header_right"]/div[1]
+test_loginout1,//*[@id="top_header_right"]/div[2]/ul/li[3]/a
