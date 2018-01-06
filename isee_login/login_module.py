@@ -8,15 +8,15 @@ from logindata import get_webinfo,get_userinfo,get_infodata
 from log_module import Loginfo
 
 
-# logindata={'url':'https://www.itouzi.com/','test_name':'//*[@id="top_header_sign_out"]/li[2]/a','test_username':'/html/body/div[2]/div/div/form/div[1]/input','test_pwd':'/html/body/div[2]/div/div/form/div[2]/input','test_login':'/html/body/div[2]/div/div/form/div[5]/button'}
-# userdata=[{'uname':'18210149904','pwd':'123'}]
-# infodata={'allnull':'/html/body/div[2]/div/div/form/div[1]/div','pwdnull':'/html/body/div[2]/div/div/form/div[2]/div',
-# 'allerror':'/html/body/div[2]/div/div/form/div[5]/div'}
+# logindata={'url':'https://isc01.itouzi.com/','test_name':'//*[@id="top_header_right"]/a[1]','test_username':'/html/body/div[3]/div/form/div[1]/input','test_pwd':'/html/body/div[2]/div/div/form/div[2]/input','test_login':'/html/body/div[2]/div/div/form/div[5]/button'}
+# userdata=[{'uname':'18828664114','pwd':'123456789'},{'uname':'18828664114','pwd':'123'},{'uname':'18828664114','pwd':''}]
+# infodata={'allnull':'/html/body/div[2]/div/div/form/div[1]/div','pwdnull':'/html/body/div[2]/div/div/form/div[2]/div'}
+# # 'allerror':'/html/body/div[2]/div/div/form/div[5]/div'}
 
 #从文件txt中读取web的元素，用户的信息，web的提示错误信息元素定位
-logindata=get_webinfo('webinfo.txt')
-userdata=get_userinfo('userinfo.txt')
-infodata=get_infodata('infodata.txt')
+logindata=get_webinfo('D:\\test\\isee_login\\webinfo.txt')
+userdata=get_userinfo('D:\\test\\isee_login\\userinfo.txt')
+infodata=get_infodata('D:\\test\\isee_login\\infodata.txt')
 
 #从xls上读取用户信息（用户名，密码）
 # xinfo = xluserinfo('/Users/ply/Documents/pythontest/login/userinfo.xls')
@@ -78,15 +78,17 @@ def checkresult(driver,infodata,arg,log):
 	time.sleep(4)
 	try:
 		for key in infodata:
-		    driver.implicitly_wait(5)
-		    # driver.switch_to_alert().accept()
-		    ele_err=driver.find_element_by_xpath(infodata[key])
-		    if ele_err.text:
-		    	print('username or pwd error')
-		    	msg='%s: error: %s' %(arg,ele_err.text)
-		    	log.log_write(msg)
-		    	# print(ele_err.text)
-	except:
+			driver.implicitly_wait(5)
+			# driver.switch_to_alert().accept()
+			ele_err=driver.find_element_by_xpath(infodata[key])
+			if ele_err.text:
+				print (key)
+				print('username or pwd error')
+				msg='%s: error: %s' %(arg,ele_err.text)
+				log.log_write(msg)
+				# print(ele_err.text)
+	except Exception as e:
+		# print (e)
 		print('username and pwd right!')
 		msg='%s :pass' %(arg)
 		log.log_write(msg)

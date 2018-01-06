@@ -2,7 +2,7 @@
 import time
 
 class Loginfo(object):
-	def __init__(self,mode='w'):
+	def __init__(self,mode='a'):
 		now=time.strftime('%Y-%m-%d')
 		filename=now+'.txt'
 		self.log=open(filename,mode)
